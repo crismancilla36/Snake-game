@@ -1,16 +1,23 @@
 import sys
 import pygame
 from constant import *
-
-pygame.init()
+from snake import Snake
 
 #Surface
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption('Snake')
 
 direction = UP
-rect1 = [20, 20]
+rect1 = [200, 200]
 
+moves = { 
+    pygame.K_UP: UP, 
+    pygame.K_DOWN: DOWN, 
+    pygame.K_LEFT: LEFT, 
+    pygame.K_RIGHT: RIGHT
+    }
+
+snake = Snake(SCREEN_SIZE, NODE_SIZE, UP) 
 clock = pygame.time.Clock()
 
 while True:
@@ -20,27 +27,15 @@ while True:
             sys.exit()
         
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                direction = LEFT
+            snake.change_direction(moves.get(event.key, direction))
 
-            if event.key == pygame.K_RIGHT:
-               direction = RIGHT
-            
-            if event.key == pygame.K_UP:
-               direction = UP
-            
-            if event.key == pygame.K_DOWN:
-               direction = DOWN
+    snake.move() 
     
-   
     screen.fill(DARK)
+    for node in snake.body:
+        pygame.draw.rect(screen, WHITE, (node[0], node[1], NODE_SIZE, NODE_SIZE))
 
-    rect1[0] += direction[0]
-    rect1[1] += direction[1]
-
-    pygame.draw.rect(screen, WHITE, (rect1[0]*NODE_SIZE, rect1[1]*NODE_SIZE, NODE_SIZE, NODE_SIZE))
-    pygame.draw.rect(screen, GREEN, (0, 0, WIDTH, HEIGHT), 1)
+    pygame.draw.rect(screen, GREEN, (0, 0, SCREEN_SIZE[0], SCREEN_SIZE[1]), 1)
     
     clock.tick(30)
-
     pygame.display.update()
