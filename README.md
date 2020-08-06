@@ -10,7 +10,7 @@ In the project directory, run the next commands to setup the virtua environment 
 ```
 pipenv shell 
 ```
-*Note:* Make sure python 3.7 is installed using `python --version`, if the version is not correct run `pipenv --python [VERSION]`.
+**Note:** Make sure python 3.7 is installed using `python --version`, if the version is not correct run `pipenv --python [VERSION]`.
 
 Now, you have to install the packages like pygame.
 ```
