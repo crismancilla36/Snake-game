@@ -15,7 +15,9 @@ DOWN = (0, NODE_SIZE)
 RIGHT = (NODE_SIZE, 0)
 LEFT = (-NODE_SIZE, 0)
 
-#cell
-SNAKE_NODE = 1
-EMPTY = 0
-APPLE = 2
+#cell (to implement board)
+SNAKE_CELL = 1
+EMPTY_CELL = 0
+APPLE_CELL = 2
+
+TIMER = 50  
