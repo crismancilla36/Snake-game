@@ -6,7 +6,7 @@ You need to create a virtual environment using [Pipenv](https://pipenv-fork.read
 To get started you need to have Python 3.7 installed. Also need to install pipenv, you can find the oficial installation guide [here](https://pipenv-fork.readthedocs.io/en/latest/#install-pipenv-today).
 
 ### Setup your virtual environment 
-In the directory project run the next commands to setup the virtua environment and activate it.
+In the project directory, run the next commands to setup the virtua environment and activate it.
 ```
 pipenv shell 
 ```
